@@ -1,0 +1,16 @@
+version: "2"
+
+services:
+  upload:
+    build: .
+    ports:
+      - 3000:3000
+    image: jnummelin/nodejs-file-upload
+    environment:
+      - UPLOAD_DIR=/uploads
+    volumes:
+      - uploads:/uploads
+
+volumes:
+  uploads:
+    driver: local

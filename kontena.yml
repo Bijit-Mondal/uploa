@@ -1,0 +1,38 @@
+stack: jussi/nodejs-file-upload
+description: Sample file upload with NodeJS to demonstrate how to use volumes to share data
+variables:
+  instances:
+    type: integer
+    default: 1
+    from:
+      prompt: How many upload instances
+  vhost:
+    type: string
+    from:
+      prompt: Domain for the service
+  lb:
+    type: string
+    required: true
+    from:
+      service_link:
+        prompt: Choose a loadbalancer
+        image: kontena/lb
+
+services:
+  upload:
+    build: .
+    image: jnummelin/nodejs-file-upload:latest
+    instances: {{ instances }}
+    links:
+      - {{ lb }}
+    environment:
+      UPLOAD_DIR: /uploads
+      PORT: 3000
+      KONTENA_LB_INTERNAL_PORT: 3000
+      KONTENA_LB_VIRTUAL_HOSTS: {{ vhost }}
+    volumes:
+      - uploads:/uploads
+
+volumes:
+  uploads:
+    external: true

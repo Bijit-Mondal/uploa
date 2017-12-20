@@ -5,12 +5,24 @@
 html,
 body {
   height: 100%;
-  background-color: #4791D2;
+  background-color: #87909c;
 }
 
 body {
   text-align: center;
-  font-family: 'Raleway', sans-serif;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.4em;
+  background: #1C1E21;
+  color: #87909c;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 300;
+  background-image: url(planet.png);
+  background-position: ;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: color-dodge;
 }
 
 .row {
@@ -18,17 +30,26 @@ body {
 }
 
 .upload-btn {
-  color: #ffffff;
-  background-color: #F89406;
-  border: none;
+  margin: 0;
+  padding: 12px;
+  border: 0;
+  background-color: #3d90ce;
+  font-size: 100%;
+  vertical-align: baseline;
+  font-weight: bold;
+  font-family: inherit;
+  font-weight: inherit;
+  -webkit-appearance: none;
+  appearance: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .upload-btn:hover,
 .upload-btn:focus,
 .upload-btn:active,
 .upload-btn.active {
-  color: #ffffff;
-  background-color: #FA8900;
+  background-color: #3d90ce;
   border: none;
 }
 
@@ -65,5 +86,12 @@ h2 {
 @media (min-width: 992px) {
   .container {
     width: 450px;
+    flex-grow: 1;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    overflow: hidden;
+    position: relative;
   }
 }

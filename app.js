@@ -4,6 +4,10 @@ var path = require('path');
 var formidable = require('formidable');
 var fs = require('fs');
 
+// Load config from envs
+const PORT = process.env.PORT || 3000;
+const UPLOAD_DIR = process.env.UPLOAD_DIR || __dirname;
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', function(req, res){
@@ -19,7 +23,7 @@ app.post('/upload', function(req, res){
   form.multiples = true;
 
   // store all uploads in the /uploads directory
-  form.uploadDir = path.join(__dirname, '/uploads');
+  form.uploadDir = UPLOAD_DIR;
 
   // every time a file has been uploaded successfully,
   // rename it to it's orignal name
