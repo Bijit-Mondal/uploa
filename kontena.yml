@@ -1,5 +1,6 @@
 stack: jussi/nodejs-file-upload
 description: Sample file upload with NodeJS to demonstrate how to use volumes to share data
+version: 0.1.0
 variables:
   instances:
     type: integer
